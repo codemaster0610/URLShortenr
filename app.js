@@ -1,13 +1,25 @@
 // 載入 express 並建構應用程式伺服器
 const express = require('express')
+const exphbs = require('express-handlebars')
+const routes = require('./routes')
+require('./config/mongoose')
+
 const app = express()
+const port = 3000
 
-// 設定首頁路由
-app.get('/', (req, res) => {
-  res.send('hello world')
-})
+// 啟動Handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 
-// 設定 port 3000
-app.listen(3000, () => {
-  console.log('App is running on http://localhost:3000')
+app.set('view engine', 'handlebars')
+
+app.use(express.urlencoded({ extended: true }))
+
+////抽取 app.js 連線設定
+app.use(express.static('public'))
+
+app.use(routes)
+
+// 啟動Express 伺服器
+app.listen(port, () => {
+  console.log(`success , http:/localhost:${port}`)
 })

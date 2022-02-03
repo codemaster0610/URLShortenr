@@ -5,7 +5,7 @@ function getShortHandler() {
 
   let container = []
 
-  //Js Array 操作使用concat & split 操作
+  //Js Array 操作使用concat & split 
   container = container.concat(upperLetter.split(''))
 
   container = container.concat(lowerLetter.split(''))

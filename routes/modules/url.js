@@ -1,7 +1,7 @@
 const express = require('express')
 const Url = require('../../models/url')
 const router = express.Router()
-const getShortHandler = require('../../getShortHandler')
+const getShortHandler = require('../../getShortHandler.js')
 
 router.post('/', (req, res) => {
     const url = req.body.url.trim()

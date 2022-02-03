@@ -30,6 +30,7 @@ npm run dev
 6. 見到以下訊息時，則代表伺服器順利啟動
 ```
 success , http:/localhost:3000
+mongodb is connected!
 ```
 7. 若要關閉伺服器請執行
 ```

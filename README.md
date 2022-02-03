@@ -1,5 +1,4 @@
 # 學期三 指標作業 _URL Shortener 短網址產生器
-![image](./images/Cover Image-Url Shorten.JPG)
 ![image](./images/shortUrl Demo.JPG)
 
 ## 產品介紹

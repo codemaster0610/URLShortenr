@@ -4,7 +4,7 @@ const router = express.Router()
 const getShortHandler = require('../../getShortHandler.js')
 
 router.post('/', (req, res) => {
-    const url = req.body.url.trim()
+    const original_url = req.body.url.trim()
     let shortArr = []
 
     Url
@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
         for (let i = 0; i < item.length; i++) {
             shortArr = shortArr.concat(item[i].short_url)
             }
-        return Url.findOne({ url })
+        return Url.findOne({ original_url })
     })
 
     .then(item => {
@@ -22,9 +22,9 @@ router.post('/', (req, res) => {
             while (shortArr.includes(short_url)) {
                     short_url = getShortHandler()
             }
-                 return Url.create({ url, short_url })
+            return Url.create({ original_url, short_url })
                 .then(() => {
-                        return Url.findOne({ url })
+                    return Url.findOne({ original_url })
                             .then(item => res.redirect(`/url/${item._id}`))
                             .catch(err => {
                                 console.log(err)
